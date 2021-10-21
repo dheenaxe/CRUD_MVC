@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Last.Models.Entity.tblKullaniciSet>
+@{
+    ViewBag.Title = "KullaniciListesi";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>KullaniciListesi</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kullaniciadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.sifre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.eposta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kullanicituru)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kayittarihi)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kullaniciadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sifre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.eposta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kullanicituru)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kayittarihi)
+            </td>
+            <td>
+                @if (item.kullanicituru == "aktifdegil")
+                {
+                    @Html.ActionLink("Aktifleştir", "Aktiflestir", new { gelenid = item.id })
+                }
+            </td>
+        </tr>
+    }
+
+</table>

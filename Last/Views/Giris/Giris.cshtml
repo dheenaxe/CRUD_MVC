@@ -1,0 +1,34 @@
+﻿@model Last.Models.Entity.tblKullaniciSet
+@{
+    ViewBag.Title = "Giris";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Giris</h2>
+
+
+@using (Html.BeginForm("Giris", "Giris", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <table>
+        <tr>
+            <td>Kullanıcı Adı</td>
+            <td>
+                @Html.TextBox("kullaniciadi", null, new { @class = "textbox" })
+            </td>
+        </tr>
+        <tr>
+            <td>Şifre</td>
+            <td>
+                @Html.Password("sifre", null, new { @class = "textbox" })
+            </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Giriş Yap" class="btn">
+
+}
+
+<div>
+    @Html.ActionLink("Kayıt Ol", "Kayit")
+</div>

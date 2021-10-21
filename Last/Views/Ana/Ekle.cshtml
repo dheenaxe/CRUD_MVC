@@ -1,0 +1,51 @@
+﻿@model Last.Models.Entity.tblUrunSet
+@{
+    ViewBag.Title = "Ekle";
+    Layout = "~/Views/Shared/_LayoutPage1.cshtml";
+}
+
+<h2>Ekle</h2>
+
+
+@using (Html.BeginForm("Ekle", "Ana", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <table>
+        <tr>
+            <td>Ürün Kodu</td>
+            <td>
+                @Html.TextBox("ad", null, new { @class = "textbox" })
+            </td>
+        </tr>
+        <tr>
+            <td>Ürün Adı</td>
+            <td>
+                @Html.TextBox("kod", null, new { @class = "textbox" })
+            </td>
+        </tr>
+        <tr>
+            <td>Açıklama</td>
+            <td>
+                @Html.TextBox("aciklama", null, new { @class = "textbox" })
+            </td>
+        </tr>
+        <tr>
+            <td>Miktar</td>
+            <td>
+                @Html.TextBox("miktar", null, new { @class = "textbox" })
+            </td>
+        </tr>
+        <tr>
+            <td>Resim</td>
+            <td>
+            <td><input type="file" name="file" class="form-control" /></td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Ekle" class="btn">
+
+}
+
+<div>
+    @Html.ActionLink("Listeye Dön", "Liste")
+</div>
